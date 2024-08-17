@@ -756,7 +756,6 @@ def Personne_autre(txt_path,depart):
 
         return Liste_personne
 
-
 def Analyseur_txt(txt_path):
 
     with open(txt_path, 'r', encoding='utf8') as txt_file:
