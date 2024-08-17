@@ -1,6 +1,5 @@
 import mon_package
 import mon_package.Observateur
-import mon_package.Convertisseur
 import mon_package.Convertisseur_2
 import mon_package.Analyse_txt
 import mon_package.Analyse_csv
