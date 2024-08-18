@@ -4,6 +4,7 @@ import mon_package.Convertisseur_2
 import mon_package.Analyse_txt
 import mon_package.Analyse_csv
 import mon_package.Convertisseur_ods
+
 if __name__=="__main__":
     
     #Le programme parcours le dossier Fiches_sanitaire pour trouver tous les fichier .pdf et les rangent dans une liste
@@ -28,6 +29,7 @@ if __name__=="__main__":
     mon_package.Convertisseur_ods.Traiter_Tableau()
     mon_package.Observateur.Nettoie_cache()
     mon_package.Observateur.Nettoie_bak()
+    mon_package.Observateur.Nettoie_tmp()
 
     
 

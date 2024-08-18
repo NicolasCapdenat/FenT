@@ -7,11 +7,9 @@ def Observe_pdf():
     for filename in os.listdir(directory):
         f=os.path.join(directory,filename)
         if os.path.isfile(f) and filename.endswith('.pdf'):
-            #print(f)
-            #f=f.replace("Fiches_sanitaire\\","")
+            
             Liste_fichiers.append(f)
     
-    #print(Liste_fichiers)
     return Liste_fichiers
 
 def Nettoie_cache():
@@ -28,9 +26,14 @@ def Nettoie_bak():
         f=os.path.join(directory,filename)
         if os.path.isfile(f) and filename.endswith('.bak'):
             os.remove(f)
-            
-    
-    
+
+def Nettoie_tmp():
+    directory = 'Reception'
+    for filename in os.listdir(directory):
+        f=os.path.join(directory,filename)
+        if os.path.isfile(f) and filename.endswith('.tmp'):
+            os.remove(f)
+ 
 
 def Observe_txt():
     Liste_fichiers=[]
