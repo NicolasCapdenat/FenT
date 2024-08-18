@@ -9,79 +9,95 @@ def Debut_de_fiche(ligne):
 def Responsable_legal_2_exist(ligne):
     i=0
     n=0
+    Erreur_ligne=""
+    Erreur_ligne=ligne
     ligne=ligne.rsplit()
-    ligne.pop(0)
-    ligne.pop(0)
-
-    for elem in ligne:
-        if elem=="NOM":
-            break
-        else:
-            n+=1
-    while i<n:
+    try:
         ligne.pop(0)
-        i+=1
-    
-    nb_elem=0
-    for elem in ligne:
-        nb_elem+=1
-    
-    if nb_elem>2:
+        ligne.pop(0)
+
+        for elem in ligne:
+            if elem=="NOM":
+                break
+            else:
+                n+=1
+        while i<n:
+            ligne.pop(0)
+            i+=1
         
-        return True
-    else:
+        nb_elem=0
+        for elem in ligne:
+            nb_elem+=1
         
-        return False
+        if nb_elem>2:
+            
+            return True
+        else:
+            
+            return False
+    except:
+        print("Erreur dans la fonction Responsable_legal_2_exist",'\n',"Voici la chaine de caractère :",Erreur_ligne)
+        return "Erreur_RESPONSABLE2"
     
 def Numero_responsable_legal2(ligne):
     i=0
     n=0
-    
+    Erreur_ligne=""
+    Erreur_ligne=ligne
     ligne=ligne.rsplit()
-    ligne.pop(0)
-    ligne.pop(0)
-    ligne.pop(0)
-    
-    nb_elem=0
-    for elem in ligne:
-        nb_elem +=1
-    for elem in ligne:
-        if elem=="Tél":
-            break
-        else:
-            n+=1
-    
-    
-    
-    while i<n:
+    try:
         ligne.pop(0)
-        i+=1
-   
-    ligne.pop(0)
-    ligne.pop(0)
-    ligne.pop(0)
-    if not(ligne):
-        return "Pas de tel"
-    else:
-        tel="".join(ligne)
-        return tel  
+        ligne.pop(0)
+        ligne.pop(0)
+        
+        nb_elem=0
+        for elem in ligne:
+            nb_elem +=1
+        for elem in ligne:
+            if elem=="Tél":
+                break
+            else:
+                n+=1
+        
+        
+        
+        while i<n:
+            ligne.pop(0)
+            i+=1
+    
+        ligne.pop(0)
+        ligne.pop(0)
+        ligne.pop(0)
+        if not(ligne):
+            return "Pas de tel"
+        else:
+            tel="".join(ligne)
+            return tel
+    except:
+        print("Erreur dans la fonction Numéro_responsable_legal2",'\n',"Voici la chaine de caractère :",Erreur_ligne)
+        return "Erreur_NUMEROS_R2"  
     
 def Nom_enfant(ligne):
     i=0
     ligne=ligne.split()
     #print(ligne)
     nom_enfant=""
-    for mot in ligne:
-        #print(mot)
-        if mot=="NOM":
-            nom_enfant=ligne[i+2]
-            if ligne[i+3]!="Prénom":
-                nom_enfant=nom_enfant+" "+ligne[i+3]
-                if ligne[i+4]!="Prénom":
-                    nom_enfant=nom_enfant+" "+ligne[i+4]
-        i=i+1
-    
-    return nom_enfant
+    try:
+
+        for mot in ligne:
+            #print(mot)
+            if mot=="NOM":
+                nom_enfant=ligne[i+2]
+                if ligne[i+3]!="Prénom":
+                    nom_enfant=nom_enfant+" "+ligne[i+3]
+                    if ligne[i+4]!="Prénom":
+                        nom_enfant=nom_enfant+" "+ligne[i+4]
+            i=i+1
+        
+        return nom_enfant
+    except:
+        print("Erreur dans la fonction Nom_enfant",'\n',"Voici la chaine de caractère :",ligne)
+        return "Erreur_NOM"
 
 def Prenom_enfant(ligne):
     i=0
@@ -91,18 +107,22 @@ def Prenom_enfant(ligne):
     for elem in ligne:
         nb_elem +=1
     
-    #print(ligne)
-    for mot in ligne:
-        #print(mot)
-        if mot=="Prénom":
-            prenom_enfant=ligne[i+2]
-            if (i+3)<nb_elem:
-                prenom_enfant=prenom_enfant+" "+ligne[i+3]
-                if (i+4)<nb_elem:
-                    prenom_enfant=prenom_enfant+" "+ligne[i+4]
-        i=i+1
-    #print(prenom_enfant)
-    return prenom_enfant
+    try:
+
+        for mot in ligne:
+            #print(mot)
+            if mot=="Prénom":
+                prenom_enfant=ligne[i+2]
+                if (i+3)<nb_elem:
+                    prenom_enfant=prenom_enfant+" "+ligne[i+3]
+                    if (i+4)<nb_elem:
+                        prenom_enfant=prenom_enfant+" "+ligne[i+4]
+            i=i+1
+        
+        return prenom_enfant
+    except:
+        print("Erreur dans la fonction Prenom_enfant",'\n',"Voici la chaine de caractère :",ligne)
+        return "Erreur_PRENOM"
 
 def Repas_enfant(ligne):
     if ligne.find("Classique")!=-1:
@@ -117,196 +137,245 @@ def Nom_responsable_legal1(ligne):
     ligne=ligne.split()
     #print(ligne)
     nom_responsable=""
-    for mot in ligne:
-        #print(mot)
-        if mot=="NOM":
-            nom_responsable=ligne[i+2]
-            if ligne[i+3]!="NOM":
-                nom_responsable=nom_responsable+" "+ligne[i+3]
-                if ligne[i+4]!="NOM":
-                    nom_responsable=nom_responsable+" "+ligne[i+4]
-        i=i+1
-        return nom_responsable
+    try:
+        for mot in ligne:
+            #print(mot)
+            if mot=="NOM":
+                nom_responsable=ligne[i+2]
+                if ligne[i+3]!="NOM":
+                    nom_responsable=nom_responsable+" "+ligne[i+3]
+                    if ligne[i+4]!="NOM":
+                        nom_responsable=nom_responsable+" "+ligne[i+4]
+            i=i+1
+            return nom_responsable
+    except:
+        print("Erreur dans la fonction Nom_responsable_legal1",'\n',"Voici la chaine de caractère :",ligne)
+        return "Erreur_NOM_R1"
 
 def Nom_responsable_legal2(ligne):
     i=0
     n=0
+    Erreur_ligne=""
+    Erreur_ligne=ligne
     ligne=ligne.rsplit()
     nb_elem=0
-    for elem in ligne:
-        nb_elem +=1
-    ligne.pop(0)
-    ligne.pop(0)
+    try:
 
-    for elem in ligne:
-        if elem=="NOM":
-            break
-        else:
-            n+=1
-    while i<n:
+        for elem in ligne:
+            nb_elem +=1
         ligne.pop(0)
-        i+=1
-    
-    ligne.pop(0)
-    ligne.pop(0)
-    
-    nb_elem=0
-    for elem in ligne:
-        nb_elem +=1
-    if nb_elem==1:
-        return ligne[0]
-    else:
-        nom=" ".join(ligne)
-        return nom
+        ligne.pop(0)
+
+        for elem in ligne:
+            if elem=="NOM":
+                break
+            else:
+                n+=1
+        while i<n:
+            ligne.pop(0)
+            i+=1
+        
+        ligne.pop(0)
+        ligne.pop(0)
+        
+        nb_elem=0
+        for elem in ligne:
+            nb_elem +=1
+        if nb_elem==1:
+            return ligne[0]
+        else:
+            nom=" ".join(ligne)
+            return nom
+    except:
+        print("Erreur dans la fonction Nom_responsable_legal2",'\n',"Voici la chaine de caractère :",Erreur_ligne)
+        return "Erreur_NOM_R2"
     
 def Prenom_responsable_legal1(ligne):
     i=0
     ligne=ligne.split()
     prenom_responsable=""
-    #print(ligne)
-    for mot in ligne:
-        #print(mot)
-        if mot=="Prénom":
-            if i==0:
-                prenom_responsable=ligne[i+2]
-                if ligne[i+3]!="Prénom":
-                    prenom_responsable=prenom_responsable+" "+ligne[i+3]
-                    if ligne[i+4]!="Prénom":
-                        prenom_responsable=prenom_responsable+" "+ligne[i+4]
-        i=i+1
-    return prenom_responsable
+    try:
+
+        for mot in ligne:
+            #print(mot)
+            if mot=="Prénom":
+                if i==0:
+                    prenom_responsable=ligne[i+2]
+                    if ligne[i+3]!="Prénom":
+                        prenom_responsable=prenom_responsable+" "+ligne[i+3]
+                        if ligne[i+4]!="Prénom":
+                            prenom_responsable=prenom_responsable+" "+ligne[i+4]
+            i=i+1
+        return prenom_responsable
+    except:
+        print("Erreur dans la fonction Prenom_responsable_legal1",'\n',"Voici la chaine de caractère :",ligne)
+        return "Erreur_PRENOM_R1"
 
 def Prenom_responsable_legal2(ligne):
     i=0
     n=0
     nb_elem=0
+    Erreur_ligne=""
+    Erreur_ligne=ligne
     ligne=ligne.rsplit()
-    for elem in ligne:
-        nb_elem +=1
-    ligne.pop(0)
-    ligne.pop(0)
-
-    for elem in ligne:
-        if elem=="Prénom":
-            break
-        else:
-            n+=1
-    while i<n:
+    try:
+        for elem in ligne:
+            nb_elem +=1
         ligne.pop(0)
-        i+=1
-    
-    ligne.pop(0)
-    ligne.pop(0)
+        ligne.pop(0)
 
-    nb_elem=0
-    for elem in ligne:
-        nb_elem +=1
-    if nb_elem==1:
-        return ligne[0]
-    else:
-        prenom=" ".join(ligne)
-        return prenom   
+        for elem in ligne:
+            if elem=="Prénom":
+                break
+            else:
+                n+=1
+        while i<n:
+            ligne.pop(0)
+            i+=1
+        
+        ligne.pop(0)
+        ligne.pop(0)
+
+        nb_elem=0
+        for elem in ligne:
+            nb_elem +=1
+        if nb_elem==1:
+            return ligne[0]
+        else:
+            prenom=" ".join(ligne)
+            return prenom
+    except:
+        print("Erreur dans la fonction Prenom_responsable_legal2",'\n',"Voici la chaine de caractère :",Erreur_ligne)
+        return "Erreur_PRENOM_R2"
 
 def Tel_domicile_responsable_legal1(ligne):
     i=0
-    
+    Erreur_ligne=""
+    Erreur_ligne=ligne
     ligne=ligne.rsplit()
-    num=""
-    nb_elem=0
-    for elem in ligne:
-        if nb_elem<3:
-            ligne.pop(0)
-        
-        nb_elem +=1
-    
-    if nb_elem>3 and ligne[0].isdigit()==True:
-        if ligne[0].count("")==3:
-            for elem in ligne:
-                if (i+1)<nb_elem and ligne[i].isdigit()==True and (ligne[i+1].isdigit()==True or ligne[i+1]=='Tél'):
-                    num=num+elem
-                
-                i+=1
+    try:
+        num=""
+        nb_elem=0
+        for elem in ligne:
+            if nb_elem<3:
+                ligne.pop(0)
             
-            return num    
-        else:
+            nb_elem +=1
+        
+        if nb_elem>3 and ligne[0].isdigit()==True:
+            if ligne[0].count("")==3:
+                for elem in ligne:
+                    if (i+1)<nb_elem and ligne[i].isdigit()==True and (ligne[i+1].isdigit()==True or ligne[i+1]=='Tél'):
+                        num=num+elem
+                    
+                    i+=1
                 
-                return ligne[0]
-    else:
-        return "Pas de numéro"   
+                return num    
+            else:
+                    
+                    return ligne[0]
+        else:
+            return "Pas de numéro"
+    except:
+        print("Erreur dans la fonction Tel_domicile_responsable_legal1",'\n',"Voici la chaine de caractère :",Erreur_ligne)
+        return "Erreur_TEL_DOMICILE_R1"   
   
 def Tel_professionnel_responsable_legal1(ligne):     
     i=0
-    
+    Erreur_ligne=""
+    Erreur_ligne=ligne
     ligne=ligne.rsplit()
-    num=""
-    nb_elem=0
-    for elem in ligne:
-        if nb_elem<3:
-            ligne.pop(0)
-        
-        nb_elem +=1
-    
-    if nb_elem>3 and ligne[0].isdigit()==True:
-        if ligne[0].count("")==3:
-            for elem in ligne:
-                if (i+1)<nb_elem and ligne[i].isdigit()==True and (ligne[i+1].isdigit()==True or ligne[i+1]=='Tél'):
-                    num=num+elem
-                
-                i+=1
+    try:
+        num=""
+        nb_elem=0
+        for elem in ligne:
+            if nb_elem<3:
+                ligne.pop(0)
             
-            return num    
-        else:
+            nb_elem +=1
+        
+        if nb_elem>3 and ligne[0].isdigit()==True:
+            if ligne[0].count("")==3:
+                for elem in ligne:
+                    if (i+1)<nb_elem and ligne[i].isdigit()==True and (ligne[i+1].isdigit()==True or ligne[i+1]=='Tél'):
+                        num=num+elem
+                    
+                    i+=1
                 
-                return ligne[0]
-    else:
-        return "Pas de numéro"
+                return num    
+            else:
+                    
+                    return ligne[0]
+        else:
+            return "Pas de numéro"
+    except:
+        print("Erreur dans la fonction Tel_professionnel_responsable_legal1",'\n',"Voici la chaine de caractère :",Erreur_ligne)
+        return "Erreur_TEL_PRO_R1"  
    
 def Tel_portable_responsable_legal1(ligne): 
     i=0
-    
+    Erreur_ligne=""
+    Erreur_ligne=ligne
     ligne=ligne.rsplit()
-    num=""
-    nb_elem=0
-    for elem in ligne:
-        if nb_elem<3:
-            ligne.pop(0)
-        
-        nb_elem +=1
-    
-    if nb_elem>3 and ligne[0].isdigit()==True:
-        if ligne[0].count("")==3:
-            for elem in ligne:
-                if (i+1)<nb_elem and ligne[i].isdigit()==True and (ligne[i+1].isdigit()==True or ligne[i+1]=='Tél'):
-                    num=num+elem
-                
-                i+=1
+    try:
+        num=""
+        nb_elem=0
+        for elem in ligne:
+            if nb_elem<3:
+                ligne.pop(0)
             
-            return num    
-        else:
+            nb_elem +=1
+        
+        if nb_elem>3 and ligne[0].isdigit()==True:
+            if ligne[0].count("")==3:
+                for elem in ligne:
+                    if (i+1)<nb_elem and ligne[i].isdigit()==True and (ligne[i+1].isdigit()==True or ligne[i+1]=='Tél'):
+                        num=num+elem
+                    
+                    i+=1
                 
-                return ligne[0]
-    else:
-        return "Pas de numéro"
+                return num    
+            else:
+                    
+                    return ligne[0]
+        else:
+            return "Pas de numéro"
+    except:
+        print("Erreur dans la fonction Tel_portable_responsable_legal1",'\n',"Voici la chaine de caractère :",Erreur_ligne)
+        return "Erreur_TEL_POR_R1"  
 
 def Mail_responsable_legal1(ligne):
-     ligne=ligne.rsplit()
-     ligne.pop(0)
-     ligne.pop(0)
-     return ligne[0]
+    Erreur_ligne=""
+    Erreur_ligne=ligne
+    ligne=ligne.rsplit()
+    try:
+        ligne.pop(0)
+        ligne.pop(0)
+        return ligne[0]
+    except:
+        print("Erreur dans la fonction Mail_responsable_legal1",'\n',"Voici la chaine de caractère :",Erreur_ligne)
+        return "Erreur_MAIL_R1"
 
 def Mail_responsable_legal2(ligne):
+    Erreur_ligne=""
+    Erreur_ligne=ligne
     ligne=ligne.rsplit()
+
+    try:
     
-    ligne.pop(0)
-    ligne.pop(0)
-    if ligne[0]!="Mél":
         ligne.pop(0)
-    ligne.pop(0)
-    ligne.pop(0)
-    if not(ligne):
-        return "pas de mail"
-    else:
-        return ligne[0]
+        ligne.pop(0)
+        if ligne[0]!="Mél":
+            ligne.pop(0)
+        ligne.pop(0)
+        ligne.pop(0)
+        if not(ligne):
+            return "pas de mail"
+        else:
+            return ligne[0]
+    except:
+        print("Erreur dans la fonction Mail_responsable_legal2",'\n',"Voici la chaine de caractère :",Erreur_ligne)
+        return "Erreur_MAIL_R2"
 
 def Aller_nom_prenom_enfant(txt_path,depart):
 
@@ -667,94 +736,126 @@ def Aller_pai(txt_path,depart):
 def Personne_en_cas_urgence(txt_path,depart):
     with open(txt_path, 'r', encoding='utf8') as txt_file:
         i=0
-        while i<depart+4:
-            ligne=txt_file.readline()
-            i+=1
-        Liste_personne=[]
-        Liste_personne.append(ligne)
-        i=0
-        while i<5:
-            ligne=txt_file.readline()
-            if ligne.find("AUTRES")!=-1:
-                break
-            else:
-                Liste_personne.append(ligne)
-            i+=1
-        i=0
-        for elem in Liste_personne:
-            Liste_personne[i]=Liste_personne[i].replace("\xa0"," ")
-            Liste_personne[i]=Liste_personne[i].replace("\n","")
-            i+=1
-        
-        return Liste_personne
+        try:
+
+            while i<depart+4:
+                ligne=txt_file.readline()
+                i+=1
+            Liste_personne=[]
+            Liste_personne.append(ligne)
+            i=0
+            while i<5:
+                ligne=txt_file.readline()
+                if ligne.find("AUTRES")!=-1:
+                    break
+                else:
+                    Liste_personne.append(ligne)
+                i+=1
+            i=0
+            for elem in Liste_personne:
+                Liste_personne[i]=Liste_personne[i].replace("\xa0"," ")
+                Liste_personne[i]=Liste_personne[i].replace("\n","")
+                i+=1
+            
+            return Liste_personne
+        except:
+            Erreur=[]
+            Erreur.append("Erreur_A_VERIFIER")
+            Erreur.append("Erreur_A_VERIFIER")
+            Erreur.append("Erreur_A_VERIFIER")
+            Erreur.append("Erreur_A_VERIFIER")
+            Erreur.append("Erreur_A_VERIFIER")
+            print("Erreur dans la fonction Autorisation")
+            return Erreur
 
 def Autorisation(txt_path,depart):
     with open(txt_path, 'r', encoding='utf8') as txt_file:
         i=0
         x=0
-        while i<depart+2:
-            ligne=txt_file.readline()
-            i+=1
-        
-        Liste_personne=[]
-        if ligne.find("l’accueil périscolaire")==-1:
-            
-            Liste_personne.append(ligne)
-            ligne=txt_file.readline()
-            ligne=txt_file.readline()
-        else:
-            Liste_personne.append("A verifier")
-            ligne=txt_file.readline()
-        
-        
-        if ligne.find("seul l’accueil extras")==-1:
-            
-            Liste_personne.append(ligne)
-            ligne=txt_file.readline()
-            ligne=txt_file.readline()
-        else:
-            Liste_personne.append("A verifier")
-            ligne=txt_file.readline()
-        if ligne.find("Pour Dijon Sport")!=-1:
-            
-            x=ligne.find("Pour Dijon Sport")
-            Liste_personne.append("A verifier")
-        else:
-            Liste_personne.append(ligne)
+        try:
 
-        i=0
-        for elem in Liste_personne:
-            Liste_personne[i]=Liste_personne[i].replace("\xa0"," ")
-            Liste_personne[i]=Liste_personne[i].replace("\n","")
-            i+=1
+            while i<depart+2:
+                ligne=txt_file.readline()
+                i+=1
+            
+            Liste_personne=[]
+            if ligne.find("l’accueil périscolaire")==-1:
+                
+                Liste_personne.append(ligne)
+                ligne=txt_file.readline()
+                ligne=txt_file.readline()
+            else:
+                Liste_personne.append("A verifier")
+                ligne=txt_file.readline()
+            
+            
+            if ligne.find("seul l’accueil extras")==-1:
+                
+                Liste_personne.append(ligne)
+                ligne=txt_file.readline()
+                ligne=txt_file.readline()
+            else:
+                Liste_personne.append("A verifier")
+                ligne=txt_file.readline()
+            if ligne.find("Pour Dijon Sport")!=-1:
+                
+                x=ligne.find("Pour Dijon Sport")
+                Liste_personne.append("A verifier")
+            else:
+                Liste_personne.append(ligne)
 
-        return Liste_personne
+            i=0
+            for elem in Liste_personne:
+                Liste_personne[i]=Liste_personne[i].replace("\xa0"," ")
+                Liste_personne[i]=Liste_personne[i].replace("\n","")
+                i+=1
 
+            return Liste_personne
+        except:
+            Erreur=[]
+            Erreur.append("Erreur_A_VERIFIER")
+            Erreur.append("Erreur_A_VERIFIER")
+            Erreur.append("Erreur_A_VERIFIER")
+            print("Erreur dans la fonction Autorisation")
+            return Erreur
+            
 def Personne_autre(txt_path,depart):
     with open(txt_path, 'r', encoding='utf8') as txt_file:
         i=0
-        while i<depart+6:
-            ligne=txt_file.readline()
-            i+=1
-        
-        Liste_personne=[]
-        Liste_personne.append(ligne)
-        i=0
-        while i<5:
-            ligne=txt_file.readline()
-            if ligne.find("Parents séparés")!=-1:
-                break
-            else:
-                Liste_personne.append(ligne)
-            i+=1
-        
-        i=0
-        for elem in Liste_personne:
-            Liste_personne[i]=Liste_personne[i].replace("\xa0"," ")
-            Liste_personne[i]=Liste_personne[i].replace("\n","")
-            i+=1
+        try:
 
-        return Liste_personne
+            while i<depart+6:
+                ligne=txt_file.readline()
+                i+=1
+            
+            Liste_personne=[]
+            Liste_personne.append(ligne)
+            i=0
+            while i<5:
+                ligne=txt_file.readline()
+                if ligne.find("Parents séparés")!=-1:
+                    break
+                else:
+                    Liste_personne.append(ligne)
+                i+=1
+            
+            i=0
+            for elem in Liste_personne:
+                Liste_personne[i]=Liste_personne[i].replace("\xa0"," ")
+                Liste_personne[i]=Liste_personne[i].replace("\n","")
+                i+=1
+
+            return Liste_personne
+        
+        except:
+            Erreur=[]
+            Erreur.append("Erreur_A_VERIFIER")
+            Erreur.append("Erreur_A_VERIFIER")
+            Erreur.append("Erreur_A_VERIFIER")
+            Erreur.append("Erreur_A_VERIFIER")
+            Erreur.append("Erreur_A_VERIFIER")
+            print("Erreur dans la fonction Autorisation")
+            return Erreur
 
 def Analyseur_txt(txt_path):
 
@@ -909,13 +1010,4 @@ def Analyseur_txt(txt_path):
                 else:
                     i=i+1
             writer.writerow(name)
-            
-        
-
-
-#Analyseur_txt("cache/CE2-CM1.txt")      
-
-
-
-        
-    
+                    

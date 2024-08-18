@@ -3,6 +3,7 @@ import csv
 from pyexcel_ods3 import save_data
 from collections import OrderedDict
 import ezodf
+import sys
 
 
 def Mettre_csv_dans_Donnees_ods():
@@ -59,23 +60,26 @@ def Traiter_pai():
         spamreader=csv.reader(csvfile,delimiter=',')
         nb_elem=0
         i=0
+        try:
+            for Info_enfants in spamreader:
+                    nb_elem+=1
+            csvfile.seek(0)
+            Tableau_pai= ezodf.opendoc('Reception/PAI.ods')
 
-        for Info_enfants in spamreader:
-                nb_elem+=1
-        csvfile.seek(0)
-        Tableau_pai= ezodf.opendoc('Reception/PAI.ods')
+            feuille=Tableau_pai.sheets[0]
 
-        feuille=Tableau_pai.sheets[0]
-
-        for Info_enfants in spamreader:
-            if i==nb_elem:
-                break
-            else:
-                feuille[3+i,1].set_value(Info_enfants[0])
-                feuille[3+i,2].set_value(Info_enfants[1])
-                feuille[3+i,3].set_value(Info_enfants[2])
-                i+=1
-        Tableau_pai.save()
+            for Info_enfants in spamreader:
+                if i==nb_elem:
+                    break
+                else:
+                    feuille[3+i,1].set_value(Info_enfants[0])
+                    feuille[3+i,2].set_value(Info_enfants[1])
+                    feuille[3+i,3].set_value(Info_enfants[2])
+                    i+=1
+            Tableau_pai.save()
+        except:
+            print("ERREUR : Veulliez fermer le document libre office PAI.ods et recommencer svp")
+            sys.exit()
 
 def Traiter_photo():
 
@@ -83,23 +87,27 @@ def Traiter_photo():
         spamreader=csv.reader(csvfile,delimiter=',')
         nb_elem=0
         i=0
+        try:
+             
+            for Info_enfants in spamreader:
+                    nb_elem+=1
+            csvfile.seek(0)
+            Tableau_pai= ezodf.opendoc('Reception/Autorisation_photo.ods')
 
-        for Info_enfants in spamreader:
-                nb_elem+=1
-        csvfile.seek(0)
-        Tableau_pai= ezodf.opendoc('Reception/Autorisation_photo.ods')
+            feuille=Tableau_pai.sheets[0]
 
-        feuille=Tableau_pai.sheets[0]
-
-        for Info_enfants in spamreader:
-            if i==nb_elem:
-                break
-            else:
-                feuille[3+i,1].set_value(Info_enfants[0])
-                feuille[3+i,2].set_value(Info_enfants[1])
-                feuille[3+i,3].set_value(Info_enfants[2])
-                i+=1
-        Tableau_pai.save()
+            for Info_enfants in spamreader:
+                if i==nb_elem:
+                    break
+                else:
+                    feuille[3+i,1].set_value(Info_enfants[0])
+                    feuille[3+i,2].set_value(Info_enfants[1])
+                    feuille[3+i,3].set_value(Info_enfants[2])
+                    i+=1
+            Tableau_pai.save()
+        except:
+            print("ERREUR : Veulliez fermer le document libre office Autorisation_photo.ods et recommencer svp")
+            sys.exit()
 
 def Traiter_Tableau():
     Liste_fichier_csv=mon_package.Observateur.Observe_csv()
@@ -152,38 +160,40 @@ def Traiter_Tableau():
                         nom_fichier_ods=fichier_ods
             nom_fichier_ods=nom_fichier_ods.replace("\\","/")
              
+            try:
+                Tableau_classe=ezodf.opendoc(nom_fichier_ods)
+                
 
-            Tableau_classe=ezodf.opendoc(nom_fichier_ods)
-            
+                for Info_enfants in spamreader:
+                    nb_elem+=1
+                csvfile.seek(0)
+                for Info_enfants in spamreader:
+                    feuille=Tableau_classe.sheets[0]
+                    if i==nb_elem-1:
+                        feuille[0,1].set_value(Info_enfants[0])
+                        feuille=Tableau_classe.sheets[1]
+                        feuille[1,1].set_value(Info_enfants[0])
+                        break
+                    else:
+                        feuille[2+i,1].set_value(Info_enfants[0])
+                        feuille[2+i,2].set_value(Info_enfants[1])
+                        feuille[2+i,3].set_value(Info_enfants[4]+" "+Info_enfants[5]+'\n'+Info_enfants[10]+" "+Info_enfants[11])
+                        feuille[2+i,4].set_value(Info_enfants[6]+'\n'+Info_enfants[7]+'\n'+Info_enfants[8]+'\n'+Info_enfants[12]+'\n'+Info_enfants[13]+'\n'+Info_enfants[13])
+                        feuille[2+i,5].set_value(Info_enfants[16]+'\n'+Info_enfants[17]+'\n'+Info_enfants[18]+'\n'+Info_enfants[19]+'\n'+Info_enfants[20])
+                        feuille[2+i,6].set_value(Info_enfants[21]+'\n'+Info_enfants[22]+'\n'+Info_enfants[23]+'\n'+Info_enfants[24]+'\n'+Info_enfants[24])
+                        feuille[2+i,7].set_value(Info_enfants[27])
+                        feuille[2+i,8].set_value(Info_enfants[3])
+                        feuille=Tableau_classe.sheets[1]
+                        feuille[3+i,1].set_value(Info_enfants[0])
+                        feuille[3+i,2].set_value(Info_enfants[1])
+                        feuille[3+i,3].set_value(Info_enfants[2])
 
-            for Info_enfants in spamreader:
-                nb_elem+=1
-            csvfile.seek(0)
-            for Info_enfants in spamreader:
-                feuille=Tableau_classe.sheets[0]
-                if i==nb_elem-1:
-                    feuille[0,1].set_value(Info_enfants[0])
-                    feuille=Tableau_classe.sheets[1]
-                    feuille[1,1].set_value(Info_enfants[0])
-                    break
-                else:
-                    feuille[2+i,1].set_value(Info_enfants[0])
-                    feuille[2+i,2].set_value(Info_enfants[1])
-                    feuille[2+i,3].set_value(Info_enfants[4]+" "+Info_enfants[5]+'\n'+Info_enfants[10]+" "+Info_enfants[11])
-                    feuille[2+i,4].set_value(Info_enfants[6]+'\n'+Info_enfants[7]+'\n'+Info_enfants[8]+'\n'+Info_enfants[12]+'\n'+Info_enfants[13]+'\n'+Info_enfants[13])
-                    feuille[2+i,5].set_value(Info_enfants[16]+'\n'+Info_enfants[17]+'\n'+Info_enfants[18]+'\n'+Info_enfants[19]+'\n'+Info_enfants[20])
-                    feuille[2+i,6].set_value(Info_enfants[21]+'\n'+Info_enfants[22]+'\n'+Info_enfants[23]+'\n'+Info_enfants[24]+'\n'+Info_enfants[24])
-                    feuille[2+i,7].set_value(Info_enfants[27])
-                    feuille[2+i,8].set_value(Info_enfants[3])
-                    feuille=Tableau_classe.sheets[1]
-                    feuille[3+i,1].set_value(Info_enfants[0])
-                    feuille[3+i,2].set_value(Info_enfants[1])
-                    feuille[3+i,3].set_value(Info_enfants[2])
-
-                    
-                i+=1
-            Tableau_classe.save()
-        
+                        
+                    i+=1
+                Tableau_classe.save()
+            except:
+                print("ERREUR : Veulliez fermer le document libre office ",nom_fichier_ods," et recommencer svp")
+                sys.exit()
             
         
     
