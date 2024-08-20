@@ -886,6 +886,148 @@ def Aller_maladie(txt_path,depart):
         print("ERREUR a la fonction qui renvoie la ligne des maladies Aller_maladie")
         return "ERREUR MALADIE"
 
+def Aller_lunette_appareillage(txt_path,depart):
+    try:
+
+        with open(txt_path, 'r', encoding='utf8') as txt_file:
+            i=0
+            ligne=""
+            Liste_ligne=[]
+            while i<depart:
+                ligne=txt_file.readline()
+                i+=1
+                if i==depart:
+                    ligne=txt_file.readline()
+            
+            i=0
+            A_trouver=False
+            
+            while i<35:
+                
+                if ligne.find("appareillage")!=-1 and ligne.find("lunettes")!=-1 and A_trouver==False:
+                    ligne=txt_file.readline()
+                    Liste_ligne.append(ligne)
+                    A_trouver=True
+                elif A_trouver==True:
+                    if ligne.find("urgence")!=-1 and ligne.find("joignable")!=-1:
+                        nb_elem=0
+                        for elem in Liste_ligne:
+                            nb_elem+=1
+                        if nb_elem==1:
+                            return Liste_ligne[0]
+                        else:
+                            ligne=" ".join(Liste_ligne)
+                            return ligne
+                    else:
+                        Liste_ligne.append(ligne)
+                ligne=txt_file.readline()
+                i+=1
+            
+            return "A Verifier"
+    except:
+        print("ERREUR a la fonction qui renvoie la ligne des lunettes/appareillage")
+        return "ERREUR LUNETTE"
+
+
+def Aller_personne_urg2(txt_path,depart):
+    try:
+
+        with open(txt_path, 'r', encoding='utf8') as txt_file:
+            i=0
+            ligne=""
+            Liste_ligne=[]
+            while i<depart:
+                ligne=txt_file.readline()
+                i+=1
+                if i==depart:
+                    ligne=txt_file.readline()
+            
+            i=0
+            A_trouver=False
+            
+            while i<35:
+                
+                if ligne.find("urgence")!=-1 and ligne.find("joignable")!=-1 and A_trouver==False:
+                    ligne=txt_file.readline()
+                    ligne=txt_file.readline()
+                    ligne=txt_file.readline()
+                    ligne=txt_file.readline()
+                    Liste_ligne.append(ligne)
+                    A_trouver=True
+                elif A_trouver==True:
+                    
+                    if ligne.find("AUTRES")!=-1 and ligne.find("RENSEIGNEMENTS")!=-1:
+                        nb_elem=0
+                        for elem in Liste_ligne:
+                            nb_elem+=1
+                        if nb_elem==1:
+                            return Liste_ligne[0]
+                        else:
+                            ligne=" ".join(Liste_ligne)
+                            return ligne
+                    
+                    else:
+                        Liste_ligne.append(ligne)
+                ligne=txt_file.readline()
+                i+=1
+            
+            return "Personne"
+    except:
+        print("ERREUR a la fonction qui renvoie les personne urg 2")
+        return "ERREUR PERSONNE URG"
+    
+def Aller_personne_autorise2(txt_path,depart):
+    try:
+
+        with open(txt_path, 'r', encoding='utf8') as txt_file:
+            i=0
+            ligne=""
+            Liste_ligne=[]
+            while i<depart:
+                ligne=txt_file.readline()
+                i+=1
+                if i==depart:
+                    ligne=txt_file.readline()
+            
+            i=0
+            A_trouver=False
+            
+            while i<55:
+                
+                if ligne.find("autorise")!=-1 and ligne.find("chercher")!=-1 and A_trouver==False:
+                    
+
+                    ligne=txt_file.readline()
+                    ligne=txt_file.readline()
+                    ligne=txt_file.readline()
+                    ligne=txt_file.readline()
+                    ligne=txt_file.readline()
+                    Liste_ligne.append(ligne)
+                    A_trouver=True
+                elif A_trouver==True:
+                    
+                    if ligne.find("Parents")!=-1 and ligne.find("séparés")!=-1:
+                        nb_elem=0
+                        for elem in Liste_ligne:
+                            nb_elem+=1
+                        if nb_elem==1:
+                            return Liste_ligne[0]
+                        else:
+                            ligne=" ".join(Liste_ligne)
+                            return ligne
+                    elif ligne.find("autorise")!=-1 and ligne.find("périscolaire")!=-1:
+                        return "Personne"
+                    else:
+                        Liste_ligne.append(ligne)
+                ligne=txt_file.readline()
+                i+=1
+            
+            return "Personne"
+    except:
+        print("ERREUR a la fonction qui renvoie les personne supp 2")
+        return "ERREUR PERSONNE SUPP"
+
+
 def Analyseur_txt(txt_path):
 
     with open(txt_path, 'r', encoding='utf8') as txt_file:
@@ -1031,10 +1173,26 @@ def Analyseur_txt(txt_path):
                     
                     Informations=Informations+Liste_autorisation
                     Informations.append(Autorisation_photo)
-                    #Teste
+                    #Rajout de la maladie et allergie
                     ligne=Aller_maladie(txt_path,debut)
                     Informations.append(ligne)
 
+                    #Rajout Appareillage divers
+                    ligne=Aller_lunette_appareillage(txt_path,debut)
+                    Informations.append(ligne)
+                    Tel=""
+                    Liste_Tel=[Tel_domicile_r1,Tel_professionnel_r1,Tel_portable_r1,Tel_domicile_r2,Tel_professionnel_r2,Tel_portable_r2]
+                    Tel=" ".join(Liste_Tel)
+                    Informations.append(Tel)
+                    Personne_urg=""
+                    Personne_urg=Aller_personne_urg2(txt_path,debut)
+                    Informations.append(Personne_urg)
+                    Personne_supp=""
+                    Personne_supp=Aller_personne_autorise2(txt_path,debut)
+                    Informations.append(Personne_supp)
+
+                    
+                    
                     
                 
                     writer.writerow(Informations)
