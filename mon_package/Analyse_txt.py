@@ -857,6 +857,35 @@ def Personne_autre(txt_path,depart):
             print("Erreur dans la fonction Autorisation")
             return Erreur
 
+def Aller_maladie(txt_path,depart):
+    try:
+
+        with open(txt_path, 'r', encoding='utf8') as txt_file:
+            i=0
+            ligne=""
+            while i<depart:
+                ligne=txt_file.readline()
+                i+=1
+                if i==depart:
+                    ligne=txt_file.readline()
+            
+            i=0
+            while i<35:
+                
+                if ligne.find("période")!=-1 and ligne.find("évoluant")!=-1:
+                    
+                    ligne=txt_file.readline()
+                    
+                    return ligne
+                
+                ligne=txt_file.readline()
+                i+=1
+            
+            return "A vérifier"
+    except:
+        print("ERREUR a la fonction qui renvoie la ligne des maladies Aller_maladie")
+        return "ERREUR MALADIE"
+
 def Analyseur_txt(txt_path):
 
     with open(txt_path, 'r', encoding='utf8') as txt_file:
@@ -1002,6 +1031,9 @@ def Analyseur_txt(txt_path):
                     
                     Informations=Informations+Liste_autorisation
                     Informations.append(Autorisation_photo)
+                    #Teste
+                    ligne=Aller_maladie(txt_path,debut)
+                    Informations.append(ligne)
 
                     
                 
