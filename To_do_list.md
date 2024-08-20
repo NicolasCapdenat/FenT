@@ -1,4 +1,4 @@
-*-> Verifier si le retour a la ligne fonctionne sur les lb 7*
+*-> Verifier si le retour a la ligne fonctionne sur les lb 7* ok
 
 *-> Ajouter le fichier donnees dans le tableau libre office*
 
