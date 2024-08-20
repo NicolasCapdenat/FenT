@@ -4,6 +4,8 @@
 
 *-> Sauvegrader les donnees de blabla sur les fiches sanitaire*
 
-*-> Revoir la sauvegarde de donnees des personnes urg et des personnes supplementaire*
+*-> Revoir la sauvegarde de donnees des personnes urg et des personnes supplementaire* ok
+
+*-> Rajouter la maladie et les infos complémentaires*
 
 *-> Trouver comment faire pour parcourir moins de fois le fichier txt*
