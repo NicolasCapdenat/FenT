@@ -178,9 +178,9 @@ def Traiter_Tableau():
                         feuille[2+i,1].set_value(Info_enfants[0])
                         feuille[2+i,2].set_value(Info_enfants[1])
                         feuille[2+i,3].set_value(Info_enfants[4]+" "+Info_enfants[5]+'\n'+Info_enfants[10]+" "+Info_enfants[11])
-                        feuille[2+i,4].set_value(Info_enfants[6]+'\n'+Info_enfants[7]+'\n'+Info_enfants[8]+'\n'+Info_enfants[12]+'\n'+Info_enfants[13]+'\n'+Info_enfants[13])
-                        feuille[2+i,5].set_value(Info_enfants[16]+'\n'+Info_enfants[17]+'\n'+Info_enfants[18]+'\n'+Info_enfants[19]+'\n'+Info_enfants[20])
-                        feuille[2+i,6].set_value(Info_enfants[21]+'\n'+Info_enfants[22]+'\n'+Info_enfants[23]+'\n'+Info_enfants[24]+'\n'+Info_enfants[24])
+                        feuille[2+i,4].set_value(Info_enfants[6]+'\n'+" "+Info_enfants[7]+'\n'+" "+Info_enfants[8]+'\n'+" "+Info_enfants[12]+'\n'+" "+Info_enfants[13]+'\n'+" "+Info_enfants[14])
+                        feuille[2+i,5].set_value(Info_enfants[16]+'\n'+" "+Info_enfants[17]+'\n'+" "+Info_enfants[18]+'\n'+" "+Info_enfants[19]+'\n'+" "+Info_enfants[20])
+                        feuille[2+i,6].set_value(Info_enfants[21]+'\n'+" "+Info_enfants[22]+'\n'+" "+Info_enfants[23]+'\n'+" "+Info_enfants[24]+'\n'+" "+Info_enfants[24])
                         feuille[2+i,7].set_value(Info_enfants[27])
                         feuille[2+i,8].set_value(Info_enfants[3])
                         feuille=Tableau_classe.sheets[1]
