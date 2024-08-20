@@ -27,7 +27,7 @@ if __name__=="__main__":
     mon_package.Convertisseur_ods.Traiter_pai()
     mon_package.Convertisseur_ods.Traiter_photo()
     mon_package.Convertisseur_ods.Traiter_Tableau()
-    #mon_package.Observateur.Nettoie_cache()
+    mon_package.Observateur.Nettoie_cache()
     mon_package.Observateur.Nettoie_bak()
     mon_package.Observateur.Nettoie_tmp()
 

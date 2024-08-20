@@ -1027,6 +1027,51 @@ def Aller_personne_autorise2(txt_path,depart):
         print("ERREUR a la fonction qui renvoie les personne supp 2")
         return "ERREUR PERSONNE SUPP"
 
+def Aller_parents_separer(txt_path,depart):
+    try:
+
+        with open(txt_path, 'r', encoding='utf8') as txt_file:
+            i=0
+            ligne=""
+            Liste_ligne=[]
+            while i<depart:
+                ligne=txt_file.readline()
+                i+=1
+                if i==depart:
+                    ligne=txt_file.readline()
+            
+            i=0
+            A_trouver=False
+            
+            while i<55:
+                
+                if ligne.find("Parents")!=-1 and ligne.find("séparés")!=-1 and A_trouver==False:
+                    
+                    ligne=txt_file.readline()
+                    ligne=txt_file.readline()
+                    
+                    Liste_ligne.append(ligne)
+                    A_trouver=True
+                elif A_trouver==True:
+                    
+                    if ligne.find("autorise")!=-1 and ligne.find("périscolaire")!=-1:
+                        nb_elem=0
+                        for elem in Liste_ligne:
+                            nb_elem+=1
+                        if nb_elem==1:
+                            return Liste_ligne[0]
+                        else:
+                            ligne=" ".join(Liste_ligne)
+                            return ligne
+                    else:
+                        Liste_ligne.append(ligne)
+                ligne=txt_file.readline()
+                i+=1
+            
+            return "Personne"
+    except:
+        print("ERREUR a la fonction qui renvoie les parents séparer")
+        return "ERREUR PARENTS SEPARER"
 
 def Analyseur_txt(txt_path):
 
@@ -1190,6 +1235,9 @@ def Analyseur_txt(txt_path):
                     Personne_supp=""
                     Personne_supp=Aller_personne_autorise2(txt_path,debut)
                     Informations.append(Personne_supp)
+                    Parents_séparer=""
+                    Parents_séparer=Aller_parents_separer(txt_path,debut)
+                    Informations.append(Parents_séparer)
 
                     
                     
