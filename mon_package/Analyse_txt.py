@@ -1238,6 +1238,7 @@ def Analyseur_txt(txt_path):
                     Parents_séparer=""
                     Parents_séparer=Aller_parents_separer(txt_path,debut)
                     Informations.append(Parents_séparer)
+                    
 
                     
                     
