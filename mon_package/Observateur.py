@@ -33,6 +33,13 @@ def Nettoie_tmp():
         f=os.path.join(directory,filename)
         if os.path.isfile(f) and filename.endswith('.tmp'):
             os.remove(f)
+
+def Nettoie_ods():
+    directory = 'Reception'
+    for filename in os.listdir(directory):
+        f=os.path.join(directory,filename)
+        if os.path.isfile(f) and filename.endswith('.ods'):
+            os.remove(f)
  
 
 def Observe_txt():
