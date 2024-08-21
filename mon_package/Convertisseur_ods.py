@@ -30,6 +30,10 @@ def Traiter_pai():
             Tableau_pai.save()
         except:
             print("ERREUR : Veulliez fermer le document libre office _PAI_.ods et recommencer svp")
+            mon_package.Observateur.Nettoie_cache()
+            mon_package.Observateur.Nettoie_bak()
+            mon_package.Observateur.Nettoie_tmp()
+            mon_package.Observateur.Nettoie_ods()
             sys.exit()
 
 def Traiter_photo():
@@ -58,6 +62,10 @@ def Traiter_photo():
             Tableau_pai.save()
         except:
             print("ERREUR : Veulliez fermer le document libre office Autorisation_photo.ods et recommencer svp")
+            mon_package.Observateur.Nettoie_cache()
+            mon_package.Observateur.Nettoie_bak()
+            mon_package.Observateur.Nettoie_tmp()
+            mon_package.Observateur.Nettoie_ods()
             sys.exit()
 
 def Traiter_Tableau():
@@ -163,6 +171,10 @@ def Traiter_Tableau():
                 Tableau_classe.save()
             except:
                 print("ERREUR : Veulliez fermer le document libre office ",nom_fichier_ods," et recommencer svp")
+                mon_package.Observateur.Nettoie_cache()
+                mon_package.Observateur.Nettoie_bak()
+                mon_package.Observateur.Nettoie_tmp()
+                mon_package.Observateur.Nettoie_ods()
                 sys.exit()
             
         
