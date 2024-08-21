@@ -1131,9 +1131,11 @@ def Analyseur_txt(txt_path):
 
                     Informations.append(Nom_r1)
                     Informations.append(Prenom_r1)
+                    """
                     Informations.append(Tel_domicile_r1)
                     Informations.append(Tel_professionnel_r1)
                     Informations.append(Tel_portable_r1)
+                    """
                     Informations.append(mail_r1)
                 
                     #INFORMATIONS RESPONSABLE LEGAL 2
@@ -1161,17 +1163,21 @@ def Analyseur_txt(txt_path):
 
                     Informations.append(Nom_r2)
                     Informations.append(Prenom_r2)
+                    """
                     Informations.append(Tel_domicile_r2)
                     Informations.append(Tel_professionnel_r2)
                     Informations.append(Tel_portable_r2)
+                    """
                     Informations.append(Mail_r2)
 
+                    """
                     debut_urgence=Aller_cas_urgence_I(txt_path,debut)
                     ligne=Aller_cas_urgence_S(txt_path,debut)
 
                     Liste_personne_urg=[]
                     if ligne.find("OUI")!=-1:
-                        #INFORMATION PERSONNE A CONTACTER EN CAS URGENCE
+                    
+                    INFORMATION PERSONNE A CONTACTER EN CAS URGENCE
                     
                         Liste_personne_urg=Personne_en_cas_urgence(txt_path,debut_urgence)
                     longueur_liste=0
@@ -1184,8 +1190,9 @@ def Analyseur_txt(txt_path):
                             a+=1
 
                     Informations=Informations+Liste_personne_urg
+                    """
                 
-
+                    """
                     debut_autre_personne=Aller_autres_personne_I(txt_path,debut)
                     ligne=Aller_autres_personne_S(txt_path,debut)
 
@@ -1205,6 +1212,7 @@ def Analyseur_txt(txt_path):
 
                     
                     Informations=Informations+Liste_autre_personne
+                    """
                     
                     #AUTORISATIONS DE SORTIE ET ARRIVEES
                     debut_autorisation=Aller_autorisations_I(txt_path,debut)
@@ -1218,6 +1226,7 @@ def Analyseur_txt(txt_path):
                     
                     Informations=Informations+Liste_autorisation
                     Informations.append(Autorisation_photo)
+                    
                     #Rajout de la maladie et allergie
                     ligne=Aller_maladie(txt_path,debut)
                     Informations.append(ligne)

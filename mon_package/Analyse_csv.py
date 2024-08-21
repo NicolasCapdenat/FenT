@@ -50,7 +50,7 @@ def Analyse_autorisation_photo():
                         Nom_prenom_classe=[]
                         for nb_elem in row:
                             i+=1  
-                        if i>3 and (row[29].find("NON")!=-1 or row[29].find("A verifier")!=-1):
+                        if i>3 and (row[13].find("NON")!=-1 or row[13].find("A verifier")!=-1):
                             
                             Nom_prenom_classe.append(row[0])
                             Nom_prenom_classe.append(row[1])
