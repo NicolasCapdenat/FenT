@@ -50,7 +50,7 @@ def Observe_txt():
             shutil.copy('Liste_referente.ods','Reception/'+f)
     
     shutil.copy('Autorisation_photo_reference.ods','Reception/Autorisation_photo.ods')
-    shutil.copy('Pai_reference.ods','Reception/PAI.ods')
+    shutil.copy('Pai_reference.ods','Reception/_PAI_.ods')
     
     #print(Liste_fichiers)
     return Liste_fichiers

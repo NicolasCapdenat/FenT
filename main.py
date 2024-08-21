@@ -23,7 +23,6 @@ if __name__=="__main__":
     
     mon_package.Analyse_csv.Analyse_autorisation_photo()
     mon_package.Analyse_csv.Analyse_pai()
-    mon_package.Convertisseur_ods.Mettre_csv_dans_Donnees_ods()
     mon_package.Convertisseur_ods.Traiter_pai()
     mon_package.Convertisseur_ods.Traiter_photo()
     mon_package.Convertisseur_ods.Traiter_Tableau()
