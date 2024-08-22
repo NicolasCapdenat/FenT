@@ -133,12 +133,12 @@ def Traiter_Tableau():
                         feuille=Tableau_classe.sheets[1]
                         feuille[1,1].set_value(Info_enfants[0])
                         feuille=Tableau_classe.sheets[2]
-                        feuille[1,1].set_value(Info_enfants[0])
+                        feuille[1,0].set_value(Info_enfants[0])
                         break
                     else:
                         feuille[2+i,1].set_value(Info_enfants[0])
                         feuille[2+i,2].set_value(Info_enfants[1])
-                        feuille[2+i,3].set_value(Info_enfants[4]+" "+Info_enfants[5]+'\n'+Info_enfants[7]+" "+Info_enfants[8])
+                        feuille[2+i,3].set_value(Info_enfants[4]+" "+Info_enfants[5]+'\n'+" "+Info_enfants[7]+" "+Info_enfants[8])
                         feuille[2+i,4].set_value(Info_enfants[16])
                         feuille[2+i,5].set_value(Info_enfants[17])
                         feuille[2+i,6].set_value(Info_enfants[18])
@@ -151,7 +151,7 @@ def Traiter_Tableau():
                         feuille=Tableau_classe.sheets[2]
                         feuille[2+i,1].set_value(Info_enfants[0])
                         feuille[2+i,2].set_value(Info_enfants[1])
-                        feuille[2+i,3].set_value(Info_enfants[4]+" "+Info_enfants[5]+'\n'+Info_enfants[7]+" "+Info_enfants[8])
+                        feuille[2+i,3].set_value(Info_enfants[4]+" "+Info_enfants[5]+'\n'+" "+Info_enfants[7]+" "+Info_enfants[8])
                         feuille[2+i,4].set_value(Info_enfants[16])
                         feuille[2+i,5].set_value(Info_enfants[6]+"    "+Info_enfants[9])
                         feuille[2+i,6].set_value(Info_enfants[17])
