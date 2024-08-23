@@ -133,7 +133,7 @@ def Traiter_Tableau():
                         feuille=Tableau_classe.sheets[1]
                         feuille[1,1].set_value(Info_enfants[0])
                         feuille=Tableau_classe.sheets[2]
-                        feuille[1,0].set_value(Info_enfants[0])
+                        feuille[0,1].set_value(Info_enfants[0])
                         break
                     else:
                         feuille[2+i,1].set_value(Info_enfants[0])
