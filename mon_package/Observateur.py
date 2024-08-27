@@ -54,10 +54,10 @@ def Observe_txt():
             f=f.replace(".txt","")
             f=f+".ods"
             
-            shutil.copy('Liste_referente.ods','Reception/'+f)
+            shutil.copy('Ne_pas_modifié/Liste_referente.ods','Reception/'+f)
     
-    shutil.copy('Autorisation_photo_reference.ods','Reception/Autorisation_photo.ods')
-    shutil.copy('Pai_reference.ods','Reception/_PAI_.ods')
+    shutil.copy('Ne_pas_modifié/Autorisation_photo_reference.ods','Reception/Autorisation_photo.ods')
+    shutil.copy('Ne_pas_modifié/Pai_reference.ods','Reception/_PAI_.ods')
     
     #print(Liste_fichiers)
     return Liste_fichiers
