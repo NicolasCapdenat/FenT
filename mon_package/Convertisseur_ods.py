@@ -163,6 +163,7 @@ def Traiter_Tableau():
                         feuille[2+i,12].set_value(Info_enfants[14])
                         feuille[2+i,13].set_value(Info_enfants[15])
                         feuille[2+i,14].set_value(Info_enfants[19])
+                        feuille[2+i,15].set_value(Info_enfants[3])
 
 
 
