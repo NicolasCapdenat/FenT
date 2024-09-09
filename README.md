@@ -2,7 +2,6 @@
 Ce programme a pour but de transformer des documents pdf spécifique en tableau libre office
 
 **Pour travailler sur ce programme il vous faut les librairies python suivantes :**
--pyexcel_ods3
 -ezodf
 -pypdf
 -auto_py_to_exe (pour créer l'executable)

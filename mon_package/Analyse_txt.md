@@ -1,6 +1,6 @@
 Ce fichier decrit ce que font les fonctions et ce qui est return dans chaque fontion
 
-#DISCLAIMER Je ne suis pas programmeur donc certaines fonction sont redondantes et peuvent être amélioré (peut etre dans un futur proche)   #
+#DISCLAIMER Je ne suis pas programmeur donc certaines fonction sont redondantes et peuvent être amélioré (peut etre dans un futur proche)   # Ce n'est pas à jour
 
 **Debut_de_fichier(_chaine de caractère_)**
     Cette fonction compare _la chaine de caractère_ en argument avec "FICHE SANITAIRE ET DE LIAISON" qui symbolyse le début d'une fiche sanitaire.
